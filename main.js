@@ -19,6 +19,7 @@ fetch(`https://api.soundcloud.com/tracks?client_id=095fe1dcd09eb3d0e1d3d89c76f56
       .then( function(response) {
         return response.json() //returns API in Json format
       }).then(function(data){
+
               moreInfo(data)
 
       })
@@ -26,7 +27,18 @@ fetch(`https://api.soundcloud.com/tracks?client_id=095fe1dcd09eb3d0e1d3d89c76f56
 
 
 function moreInfo(data){ //looping through values in Objects
+  displayResults=""
   for(x=0; x<data.length; x++){
-    console.log(data[x].title)
+  displayResults += `<div class="w3-card-4">
+                    <img class="albumArt" src="${data[x].artwork_url}"/>
+                    <h3>${data[x].title}</h3>
+                    <p>${data[x].user.username}</p>
+
+
+
+
+  </div>`
   }
+
+  results.innerHTML = displayResults
 }
