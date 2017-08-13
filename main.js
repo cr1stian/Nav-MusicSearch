@@ -1,5 +1,5 @@
 var results = document.querySelector(".results-container") //grabbing HTML Elements to use in here
-
+var player = document.querySelector(".music-player")
 var searchBox = document.querySelector("#searchBar")
 
 searchBox.addEventListener('keydown', function(event){ //adding Event listener for when a keyboard button is pushed
@@ -19,7 +19,6 @@ fetch(`https://api.soundcloud.com/tracks?client_id=095fe1dcd09eb3d0e1d3d89c76f56
       .then( function(response) {
         return response.json() //returns API in Json format
       }).then(function(data){
-
               moreInfo(data)
 
       })
@@ -29,15 +28,13 @@ fetch(`https://api.soundcloud.com/tracks?client_id=095fe1dcd09eb3d0e1d3d89c76f56
 function moreInfo(data){ //looping through values in Objects
   displayResults=""
   for(x=0; x<data.length; x++){
-  displayResults += `<div class="w3-card-4">
+    var link = `${data[x].stream_url}`
+    console.log(link)
+  displayResults += `<div class="w3-card-4" id=${link}>
                     <img class="albumArt" src="${data[x].artwork_url}"/>
-                    <h3>${data[x].title}</h3>
+                    <h4>${data[x].title}</h4>
                     <p>${data[x].user.username}</p>
-
-
-
-
-  </div>`
+                    </div>`
   }
 
   results.innerHTML = displayResults

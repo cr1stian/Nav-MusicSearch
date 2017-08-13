@@ -29,13 +29,27 @@ body{
 }
 .w3-card-4{
   text-align: center;
-  height: 400px;
-  width: 350px;
+  height: 360px;
+  width: 250px;
   background-color: white;
   margin: 15px;
 }
 
 .albumArt{
-  height: 275px;
+  height: 225px;
+  width: 100%;
+}
+h4{
+  font-size: 4vw;
+}
+.music-bar{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:40px;
+  width:100%;
+}
+
+.music-player{
   width: 100%;
 }
