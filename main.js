@@ -1,15 +1,15 @@
 var results = document.querySelector(".results-container") //grabbing HTML Elements to use in here
 var player = document.querySelector(".music-player")
-var searchBox = document.querySelector("#searchBar")
+var textForm = document.querySelector(".textForm")
+var searchBar = document.querySelector("#searchBar")
 
-searchBox.addEventListener('keydown', function(event){ //adding Event listener for when a keyboard button is pushed
 
-  if(event.keyCode === 13){ //13 is the keycode for Return-Enter
+textForm.addEventListener('submit', function(event){ //adding Event listener for when a keyboard button is pushed
+    console.log('Fire!')
+    event.preventDefault();
     results.textContent = ""
-    return(getInfo(event.target.value)); //return is running the function below
-
-  }
-
+    let artist = searchBar.value;
+    getInfo(artist)
 })
 
 
